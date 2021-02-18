@@ -1,0 +1,157 @@
+<html>
+	<head>
+		<title>Calculadora</title>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <style>
+      .calculadora {
+        margin-top: 40px;
+        border: solid 1px #4EC3C7;
+        padding: 20px;
+        background-color: #4EC3C7;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px #4EC3C7;
+      }
+
+      .btn {
+        width: 60px;
+        height: 50px;
+        margin: 5px;
+        box-shadow: 1px 1px 1px #97D7D9;
+      }
+
+      .clear {
+        width: 130px;
+      }
+
+      .enter {
+        height: 110px;
+      }
+
+      .zero {
+        width: 130px;
+      }
+
+      .resultado {
+        text-align: right;
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border: solid 1px #4EC3C7;
+        box-shadow: 1px 1px 1px #4EC3C7;
+      }
+
+    </style>
+	</head>
+    <header><!-- inicio Cabecalho -->
+      <nav class="navbar navbar-expand-md navbar-light fixed-top navbar-transparente">
+        <div class="container">
+          
+          <a href="index.html" class="navbar-brand">
+            <img src="imagens/renata_branco.png" width="250">
+          </a>
+
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+            <i class="fas fa-bars text-white"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="nav-principal">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a href="sobre.html" class="nav-link">Sobre</a>
+              </li>
+              <li class="nav-item ">
+                <a href="destaque.html" class="nav-link">Destaque</a>
+              </li>
+              <li class="nav-item active">
+                <a href="blog.html" class="nav-link">Blog</a>
+              </li>              
+              <li class="nav-item">
+                <a href="contato.html" class="nav-link">Contato</a>
+              </li>
+               </ul>
+          </div>
+
+        </div>
+      </nav>
+    </header><!--/fim Cabecalho -->
+
+
+
+
+  <body style="background: white">
+
+    <div class="container">
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <br />
+
+          <div class="calculadora">
+            <input id = "resultado" type="text" class="form-control resultado" placeholder="0" disabled="disabled" />
+            
+            <div class="row">
+              <button onclick="calcular('acao', 'c')" type="button" class="btn btn-danger btn-lg clear font-weight-light">C</button>
+              <button onclick="calcular('acao', '/')" type="button" class="btn btn-info btn-lg font-weight-light">/</button>
+              <button onclick="calcular('acao', '*')" type="button" class="btn btn-info btn-lg font-weight-light">x</button>
+            </div>
+
+            <div class="row">
+              <button onclick="calcular('valor', 7)" type="button" class="btn btn-info btn-lg font-weight-light">7</button>
+              <button onclick="calcular('valor', '8')" type="button" class="btn btn-info btn-lg font-weight-light">8</button>
+              <button onclick="calcular('valor', '9')" type="button" class="btn btn-info btn-lg font-weight-light">9</button>
+              <button onclick="calcular('acao', '-')" type="button" class="btn btn-info btn-lg font-weight-light">-</button>
+            </div>
+            
+            <div class="row">
+              <button onclick="calcular('valor', 4)" type="button" class="btn btn-info btn-lg font-weight-light">4</button>
+              <button onclick="calcular('valor', 5)" type="button" class="btn btn-info btn-lg font-weight-light">5</button>
+              <button onclick="calcular('valor', 6)" type="button" class="btn btn-info btn-lg font-weight-light">6</button>
+              <button onclick="calcular('acao', '+')" type="button" class="btn btn-info btn-lg font-weight-light">+</button>
+            </div>
+
+            <div class="row">
+              <button onclick="calcular('valor', 1)" type="button" class="btn btn-info btn-lg font-weight-light">1</button>
+              <button onclick="calcular('valor', 2)" type="button" class="btn btn-info btn-lg font-weight-light">2</button>
+              <button onclick="calcular('valor', 3)" type="button" class="btn btn-info btn-lg font-weight-light">3</button>
+              <button onclick="calcular('acao', '=')" type="button" class="btn btn-info btn-lg enter">=</button>
+            </div>
+
+            <div class="row" style="margin-top: -60px">
+              <button onclick="calcular('valor', 0)" type="button" class="btn btn-info zero btn-lg font-weight-light">0</button>
+              <button onclick="calcular('acao', '.')"type="button" class="btn btn-info btn-lg font-weight-light">.</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div> 
+    <script>
+      function calcular(tipo,valor) {
+
+        if(tipo === 'acao'){
+
+          if(valor ==='c'){
+            document.getElementById('resultado').value = ''
+          }
+
+          if(valor === '+' || valor === '-' || valor === '*' || valor === '/' || valor ==='.'){
+            document.getElementById('resultado').value += valor
+          }
+          if(valor === '='){
+            var valor_campo = eval(document.getElementById('resultado').value)
+            document.getElementById('resultado').value = valor_campo
+          }
+
+
+
+        } else if(tipo === 'valor'){
+         document.getElementById('resultado').value += valor
+        }
+      }
+
+    </script>   
+  </body>	
+
+</html>
